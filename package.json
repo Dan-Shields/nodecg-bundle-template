@@ -1,0 +1,54 @@
+{
+  "name": "bundle-template",
+  "version": "1.0.0",
+  "author": {
+    "name": "Daniel Shields",
+    "email": "d@shieldsuk.me"
+  },
+  "scripts": {
+    "autofix:browser": "eslint --fix --ext .js,.vue src/dashboard && eslint --fix --ext .js,.vue src/graphics",
+    "autofix:extension": "eslint --fix --ext .ts src/extension",
+    "static": "npm run static:extension && npm run static:browser",
+    "static:browser": "eslint --ext .js,.vue src/dashboard && eslint --ext .js,.vue src/graphics",
+    "static:extension": "eslint --ext .ts src/extension",
+    "bundle": "rimraf graphics && rimraf dashboard && node script/bundle.js",
+    "build": "npm run build:extension && npm run build:browser",
+    "build:browser": "rimraf .cache && cross-env NODE_ENV=production npm run bundle",
+    "build:extension": "rimraf extension && tsc -b tsconfig.json",
+    "watch": "npm run bundle",
+    "start": "node ../.."
+  },
+  "license": "AGPL-3.0",
+  "private": true,
+  "dependencies": {
+    "clone": "^2.1.2",
+    "cloneable-ts": "^1.0.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@chenfengyuan/vue-number-input": "^1.1.0",
+    "@types/clone": "^0.1.30",
+    "@types/luxon": "^1.11.1",
+    "@types/node": "^11.9.4",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "@vue/component-compiler-utils": "^2.5.2",
+    "cross-env": "^5.2.0",
+    "dart-sass": "^1.17.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "nodecg-vue": "^0.5.2",
+    "parcel-bundler": "^1.11.0",
+    "rimraf": "^3.0.0",
+    "sass": "^1.17.1",
+    "stylus": "^0.54.5",
+    "typescript": "^3.3.3",
+    "vue": "^2.6.6",
+    "vue-hot-reload-api": "^2.3.2",
+    "vue-template-compiler": "^2.6.6",
+    "vuetify": "^1.5.2"
+  },
+  "nodecg": {
+  }
+}
