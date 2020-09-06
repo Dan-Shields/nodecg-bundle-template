@@ -9,7 +9,7 @@
     "autofix:browser": "eslint --fix --ext .js,.vue src/dashboard && eslint --fix --ext .js,.vue src/graphics",
     "static": "eslint --ext .js,.vue src/dashboard && eslint --ext .js,.vue src/graphics",
     "dev": "rimraf graphics && rimraf dashboard && node scripts/bundle.js",
-    "build": "rimraf .cache && cross-env NODE_ENV=production npm run bundle",
+    "build": "rimraf .cache && cross-env NODE_ENV=production npm run dev",
     "start": "node ../.."
   },
   "license": "AGPL-3.0",
